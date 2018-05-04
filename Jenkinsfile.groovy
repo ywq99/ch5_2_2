@@ -1,6 +1,6 @@
 node {
 
-	 env.PATH="${tool 'M3'}/bin:${env.PATH}"
+	
       
      stage('checkout') {
          checkout scm
