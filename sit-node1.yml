@@ -1,0 +1,19 @@
+---
+- hosts: configmeta-sit-node1
+  remote_user: wtadmin
+  tasks:
+     - name: mkdir metaprovider
+       file: dest=/data01/install owner=wtadmin  group=wtadmin  mode=755 state=directory
+     - name: Copy meta-provider.sh
+       copy: src=/home/wtadmin/.jenkins/workspace/config-meta/meta-provider.sh dest=/data01/install owner=wtadmin group=wtamdin  mode=755
+     - name: romove metaprovider
+       file: dest=/data01/install/config-meta-provider.jar state=absent
+     - name: copy metaprovider
+       file: src=/home/wtadmin/.jenkins/workspace/config-meta/target/config-meta-provider.jar dest=/data01/install/config-meta-provider.jar owner=wtadmin group=wtamdin mode=755
+     - name: stop metaprovider port 9091
+       shell: cd /data01/install/;./meta-provider.sh stop config-meta-provider.jar 9091 &  
+       async: 10
+     - name: start metaprovider port 9091
+       shell: cd /data01/install/;./meta-provider.sh start config-meta-provider.jar 9091 &  
+       async: 10
+       poll: 0
