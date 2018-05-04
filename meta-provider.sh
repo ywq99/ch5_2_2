@@ -7,7 +7,7 @@ RETVAL=0
 case "${1}" in
     start)
 	    cd ${PROVIDER_HOME}
-		java -jar Dserver.port=${PORT} ${PROJECT}
+		java -jar -Dserver.port=${PORT} ${PROJECT}
 		PID=$!
 		sleep 10
 		if [[ "${PID}" == "$(ps aux | grep "[j]ava -jar -Dserver.port=${PORT} ${PROJECT}" | awk '{print $2}')" ]]; then
