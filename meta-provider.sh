@@ -10,7 +10,7 @@ case "${1}" in
 		java -jar Dserver.port=${PORT} ${PROJECT}
 		PID=$!
 		sleep 10
-		if [["${PID}" == "$(ps aux |grep "[j]ava -jar -Dserver.port=${PORT}  ${PROJECT}" | awk '{print $2}')"]]; then
+		if [["${PID}" == "$(ps aux | grep "[j]ava -jar -Dserver.port=${PORT} ${PROJECT}" | awk '{print $2}')"]]; then
 		      echo "Provider Start Success."
 			  RETVAL=0
 	     else
