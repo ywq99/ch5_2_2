@@ -1,6 +1,6 @@
 #! /bin/bash
 
-PROVIDER_HOME="data01/install"
+PROVIDER_HOME="/data01/install"
 PROJECT=${2}
 PORT=${3}
 RETVAL=0
