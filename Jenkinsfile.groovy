@@ -17,7 +17,7 @@ node {
 	 
 	 stage('deplay sit'){
 	     try {
-		      sh 'anible-playbook sit-node1.yml'
+		      sh 'ansible-playbook sit-node1.yml'
 		 }catch(err){
 		     throw err 
 		 }
