@@ -1,14 +1,13 @@
 - hosts: configmeta-sit-node1
-  remote_user: wtadmin
   tasks:
      - name: mkdir metaprovider
-       file: dest=/data01/install owner=wtadmin  group=wtadmin  mode=755 state=directory
+       file: dest=/data01/install state=directory
      - name: Copy meta-provider.sh
-       copy: src=/root/.jenkins/workspace/config-meta/meta-provider.sh dest=/data01/install owner=wtadmin group=wtamdin  mode=755
+       copy: src=/root/.jenkins/workspace/config-meta/meta-provider.sh dest=/data01/install 
      - name: romove metaprovider
        file: dest=/data01/install/ch5_2_2-0.0.1-SNAPSHOT.jar state=absent
      - name: copy metaprovider
-       file: src=/root/.jenkins/workspace/config-meta/target/ch5_2_2-0.0.1-SNAPSHOT.jar       dest=/data01/install/ch5_2_2-0.0.1-SNAPSHOT.jar owner=wtadmin group=wtamdin mode=755
+       file: src=/root/.jenkins/workspace/config-meta/target/ch5_2_2-0.0.1-SNAPSHOT.jar dest=/data01/install/ch5_2_2-0.0.1-SNAPSHOT.jar 
      - name: stop metaprovider port 9091
        shell: cd /data01/install/;./meta-provider.sh stop ch5_2_2-0.0.1-SNAPSHOT.jar.jar 9091 &  
        async: 10
