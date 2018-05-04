@@ -7,17 +7,17 @@ node {
      }
      
      stage ('clean') {
-         sh "mvn clearn"
+         sh "mvn clean"
      }
 
      stage('packaging  sit'){
          sh "mvn clean package -DskipTests -Psit"
-         step([$class:'ArtifactArchiver',artifacts:'**/target/**.jar'])
+         step([$class: 'ArtifactArchiver', artifacts: '**/target/**.jar'])
 	 }
 	 
 	 stage('deplay sit'){
 	     try {
-		      sh ''anible-playbook sit-node1.yml'
+		      sh 'anible-playbook sit-node1.yml'
 		 }catch(err){
 		     throw err 
 		 }
