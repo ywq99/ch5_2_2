@@ -5,7 +5,7 @@
      - name: Copy meta-provider.sh
        copy: src=/root/.jenkins/workspace/config-meta/meta-provider.sh dest=/data01/install 
      - name: copy metaprovider
-       file: src=/root/.jenkins/workspace/config-meta/target/ch5_2_2-0.0.1-SNAPSHOT.jar dest=/data01/install/ 
+       copy: src=/root/.jenkins/workspace/config-meta/target/ch5_2_2-0.0.1-SNAPSHOT.jar dest=/data01/install/ 
      - name: stop metaprovider port 9091
        shell: cd /data01/install/;./meta-provider.sh stop ch5_2_2-0.0.1-SNAPSHOT.jar.jar 9091 &  
        async: 10
