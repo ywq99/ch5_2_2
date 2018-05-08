@@ -18,7 +18,7 @@ public class Ch522Application {
 	 @RequestMapping("/")
 	    String index() {
 		
-	        return "book name is:"+bookName+" and book author is:" + bookAuthor;
+	        return "ywq book name is:"+bookName+" and ddd book author is:" + bookAuthor;
 	    }
 
     public static void main(String[] args) { 
